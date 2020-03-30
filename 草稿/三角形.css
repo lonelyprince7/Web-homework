@@ -1,0 +1,23 @@
+#three{
+    height:0;
+    width:0;
+    border:10px solid transparent;
+    border-top-color:red;
+}
+ul li{
+    list-style: circle;
+}
+ol li{
+    list-style: upper-alpha;
+}
+
+#divnews{
+    width:600px;
+    margin:100px 
+}
+
+
+li{
+    list-style-image: url("images/");
+    list-style-type: url("images/");
+}
