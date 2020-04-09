@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #wrap{
+            width:500px;
+            margin:50px auto;
+        }
+        #textarea{
+            width:500px;
+            height:150px;
+        }
+        #btn{
+            float:right;
+            width:100px;
+            height:30px;
+            cursor:pointer;
+        }
+        #lists{
+            margin-top:50px;
+        }
+        #lists li{
+            width:100%;
+            margin-top:5px;
+            line-height:30px;
+            border-bottom:1px solid #000;
+            list-style-type: none;
+        }
+    </style>
+</head>
+<body>
+    <div id="wrap">
+        <textarea id="textarea"></textarea>
+        <input id="btn" type="button" value="提交">
+        <ul id="lists">
+        </ul>
+        <script>
+            let oBton = document.getElementById("btn");
+                oLists=document.getElementById("lists");
+                oText=document.getElementById("textarea");
+            oBton.onclick= function(){
+                let oValue = oText.value;
+                oLists.innerHTML +="<li>"+oValue+"</li>";
+            }
+
+        </script>
+    </div>
+</body>
+</html>

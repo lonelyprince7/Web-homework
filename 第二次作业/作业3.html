@@ -15,7 +15,9 @@
         }
         #input1{
             width:250px; 
-            background:#F5EAE8 url("./image/zhanghao.jpg") no-repeat; 
+            background:#F5EAE8 url("./image/zhanghao.jpg") no-repeat ; 
+            background-position-x: 0px;
+            background-position-y: -2px;
             border:1px solid #CCC; 
             margin-bottom: 30px;
             text-indent: 50px;
@@ -25,6 +27,8 @@
         #input2{
             width:250px; 
             background:#F5EAE8 url("./image/mima.jpg") no-repeat; 
+            background-position-x: 0px;
+            background-position-y: -2px;
             border:1px solid #CCC; 
             margin-bottom: 30px;
             text-indent: 50px;
@@ -44,10 +48,21 @@
             border-top: 1px solid #ddd;
             margin: 0px auto;
         }
-        .label{
+        .label1{
+            font-size:5px;
+            float:left;
+            margin-right: 4px;
+        }
+        .label2{
             font-size:5px;
             color:gray;
+            margin:0px 4px;
             float:left;
+            text-decoration: none;
+        }
+        .label2:hover{
+            color:red;
+            text-decoration: underline;
         }
     }
     </style>
@@ -57,12 +72,14 @@
         <input name="usr" id="input1" placeholder="用户名/邮箱地址/手机号">
         <input name="pwd" id="input2" placeholder="邮箱密码">
         <div>
-            <input name="checkbox" type="checkbox" style="float: left;"> 
-            <label class="label">&nbsp记住密码</label>
-            <label class="label">&nbsp&nbsp&nbsp&nbsp欢迎注册</label> 
-            <label class="label">&nbsp&nbsp&nbsp&nbsp忘记密码</label>
+            <input name="checkbox" type="checkbox" style="float: left; vertical-align: auto;" > 
+            <label class="label1" >&nbsp记住密码</label>
+            <div>
+                <a href="" class="label2">欢迎注册</a> 
+                <a href="" class="label2">忘记密码</a>
+            </div>
         </div>
-        <input id="submit">
+        <input type="button" id="submit">
     </form>
     <div id="cooper">
         <div style="margin:20px 40px;">

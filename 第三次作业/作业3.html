@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+    <style>
+        #box{
+            width:400px;
+            height:270px;
+            margin:30px auto;
+            background-color: lightblue;
+        }
+        #title{
+            width:400px;
+            height:35px;
+            background-color: deepskyblue;
+        }
+        #title p{
+            width:400px;
+            height:35px;
+            padding: 3px 180px;
+            margin:50px,auto;
+            font-weight: bold;
+            font-size: 20px;
+            color: white;
+        }
+        #theusrname{
+            margin:20px 60px 0px 60px;
+            height:40px;
+            width:280px;
+        }
+        #theusrpwd{
+            margin:0px 60px 0px 60px;
+            height:40px;
+            width:280px;
+        }
+        #sub{
+            margin:-4px 20px 20px 60px;
+            height:40px;
+            width:280px;
+            background-color: deepskyblue;
+        }
+        .tip{
+            color:red;
+            font-size: 5px;
+            height:5px;
+            padding-left: 60px;
+            padding-bottom: 10px;
+        }
+
+    </style>
+
+<body>
+    <div id="box">
+        <div id="title">
+            <p > 注册</p>
+        </div>
+        <form method="post" action="success.html">
+            <input id="theusrname" type="text" placeholder="输入您的用户名">
+            <p class="tip"></p>
+            <input id="theusrpwd" type="password" placeholder="请输入您的密码">
+            <p class="tip"></p>
+            <input id="sub" type="button" value="提交" onclick="Login();">
+        </form>
+    </div>
+    <script>
+        function Login(){
+            var username=document.getElementById("theusrname").value;
+            var userpwd=document.getElementById("theusrpwd").value;
+            var nameTip=document.getElementsByClassName("tip")[0];
+            var pwdTip=document.getElementsByClassName("tip")[1];
+            var nameLength=username.length;
+            var userpwdLength=userpwd.length;
+            var x=username.charCodeAt(0);
+            if(nameLength<6||nameLength>18){
+                nameTip.innerText="用户名长度必须为6到18位!";
+                return;
+            }
+            else{
+                if(x<65||(x>90&&x<97)||(x>122)){
+                    nameTip.innerText="用户名必须以英文字母开头";
+                    return;
+                }
+                else nameTip.innerText="";
+            }
+            if(userpwdLength<6){
+                pwdTip.innerText="密码长度不能小于6位!";
+                return;
+            }
+            else pwdTip.innerText="";
+        }
+    </script>
+</body>
+</html>
