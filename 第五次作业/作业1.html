@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="http://libs.baidu.com/jquery/2.0.0/jquery.js"></script>
+    <title>Document</title>
+    <style>
+        table{
+            width:500px;
+            border:1px solid #000;
+            border-collapse: collapse;
+        }
+        td{
+            border:1px solid #000;
+        }
+    </style>
+</head>
+<body>
+    <label for="txtno">学号:</label><input type="text" id="txtno" />
+    <label for="txtno">姓名:</label><input type="text" id="txtname" />
+    <label for="txtno">专业:</label><input type="text" id='txtmajor' />
+    <input type="button" id="btnAdd" value="添加" onclick="addRow()" />
+    <hr>
+    <table id="tblStu">
+        <tr>
+            <td>学号</td>
+            <td>姓名</td>
+            <td>专业年级</td>
+            <td></td>
+        </tr>
+    </table>
+    <script>
+        $(function(){
+            $.get(
+                "http://47.106.163.137/stu/getStuList",
+                function(rsp){
+                    for(let i=0;i<rsp.length;++i){
+                        var row="<tr><td>"+rsp[i].stuNo+"</td><td>"+rsp[i].stuName+"</td><td>"+rsp[i].stuMajor+"</td><td><a href ='#' onclick=delStu(this,"+rsp[i].stuNo+")>删除</a></td></tr>";
+                        $('#tblStu').append(row);
+                    }
+                },
+                'json'
+            )
+        })
+    </script>
+</body>
+</html>

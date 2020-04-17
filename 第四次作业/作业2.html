@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="http://libs.baidu.com/jquery/2.0.0/jquery.js"></script>
+    <title>Document</title>
+    <style>
+        table{
+            width:500px;
+            border:1px solid #000;
+            border-collapse: collapse;
+        }
+        td{
+            border:1px solid #000;
+        }
+    </style>
+</head>
+<body>
+    <label for="txtno">学号:</label><input type="text" id="txtno" />
+    <label for="txtno">姓名:</label><input type="text" id="txtname" />
+    <label for="txtno">专业:</label><input type="text" id='txtmajor' />
+    <input type="button" id="btnAdd" value="添加" onclick="addRow()" />
+    <hr>
+    <table id="tblStu">
+        <tr>
+            <td>学号</td>
+            <td>姓名</td>
+            <td>专业</td>
+            <td></td>
+        </tr>
+    </table>
+    <script>
+        function addRow(){
+            var no=$('#txtno').val();
+            var name=$('#txtname').val();
+            var major=$('#txtmajor').val();
+            var row='<tr><td>'+no+'</td><td>'+name+'</td><td>'+major+"</td><td><a href='#' onclick='delRow(this)'>删除</a></td></tr>";
+            $('#tblStu').append(row);
+        }
+        function delRow(del){
+            $(del).parent().parent().remove();
+        }
+    </script>
+</body>
+</html>

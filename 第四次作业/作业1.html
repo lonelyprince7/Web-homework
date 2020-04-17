@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="http://libs.baidu.com/jquery/2.0.0/jquery.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <select name="" id="selProvince" style="width:150px;height:25px">
+        <option value="" selected>请选择</option>
+        <option value="0">四川省</option>
+        <option value="1">云南省</option>
+        <option value="2">贵州省</option>
+    </select>
+    <select name="" id="selCity" style="width:150px;height:25px">
+        <option value="" selected>请选择</option>
+    </select>
+    <script>
+        var cities=[
+            ["成都市","绵阳市","自贡市","广汉市"],
+            ["昆明市","曲靖市","玉溪市","昭通市"],
+            ["贵阳市","遵义市","六盘水市","安顺市"]
+        ]
+        $(function(){
+            $('#selProvince').change(function(){
+                $("#selCity").empty();
+                var province=$('#selProvince').val();
+                for(var i=0;i<cities[province].length;i++){
+                    $('#selCity').append('<option value='+i+'>'+cities[province][i]+'</option>')
+                }
+            })
+        })
+    </script>
+</body>
+</html>
