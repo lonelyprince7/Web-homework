@@ -36,7 +36,7 @@
                 "http://47.106.163.137/stu/getStuList",
                 function(rsp){
                     for(let i=0;i<rsp.length;++i){
-                        var row="<tr><td>"+rsp[i].stuNo+"</td><td>"+rsp[i].stuName+"</td><td>"+rsp[i].stuMajor+"</td><td><a href ='#' onclick='delStu(this,"+rsp[i].stuNo+")'>删除</a></td></tr>";
+                        var row="<tr><td>"+rsp[i].stuNo+"</td><td>"+rsp[i].stuName+"</td><td>"+rsp[i].stuMajor+"</td><td><a href ='#' onclick='delStu(this)'>删除</a></td></tr>";
                         $('#tblStu').append(row);
                     }
                 },
@@ -55,13 +55,14 @@
                 },
                 function(rsp){
                     if(rsp=="success"){
-                        var row="<tr><td>"+$('#stuno').val()+"</td><td>"+$('#stuname').val()+"</td><td>"+$('#stumajor').val()+"</td><td><a href ='#' onclick='delStu(this,"+$('#stuno').val()+")'> 删除</a></td></tr>";
+                        var row="<tr><td>"+$('#stuno').val()+"</td><td>"+$('#stuname').val()+"</td><td>"+$('#stumajor').val()+"</td><td><a href ='#' onclick='delStu(this)'> 删除</a></td></tr>";
                         $('#tblStu').append(row);
                     }
                 }
             )
         }
-        function delStu(el,stuNo){
+        function delStu(el){
+            let stuNo=$(el).parent().prev().prev().prev().text();
             $.post(
                 "http://47.106.163.137/stu/deleteStu",{
                     stuNo:stuNo
